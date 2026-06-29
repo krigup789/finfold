@@ -73,7 +73,7 @@ async function CashFlowSection({ accounts }) {
 // Main Dashboard Page
 // ----------------------
 export default async function DashboardPage() {
-  const { userId } = await auth();
+  // const { userId } = await auth();
   // Start both queries in parallel
   const accountsPromise = getUserAccounts();
   const transactionsPromise = getDashboardData();

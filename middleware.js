@@ -45,8 +45,5 @@ export default createMiddleware(aj, clerk);
 
 // Middleware matcher — excludes static assets but includes APIs
 export const config = {
-  matcher: [
-    "/((?!_next|.*\\..*|favicon.ico).*)",
-    "/(api|trpc)(.*)",
-  ],
+  matcher: ["/((?!_next|.*\\..*|favicon.ico).*)", "/(api|trpc)(.*)"],
 };

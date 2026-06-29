@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 240 40% 99%;
+    --foreground: 240 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 20% 10%;
+
+    --primary: 240 40% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 24% 90%;
+    --secondary-foreground: 240 20% 15%;
+
+    --muted: 240 20% 95%;
+    --muted-foreground: 240 10% 40%;
+
+    --accent: 240 20% 92%;
+    --accent-foreground: 240 20% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 20% 85%;
+    --input: 240 20% 85%;
+    --ring: 240 40% 50%;
+
+    --chart-1: 210 100% 60%;
+    --chart-2: 160 80% 50%;
+    --chart-3: 50 100% 60%;
+    --chart-4: 340 80% 60%;
+    --chart-5: 280 80% 60%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 220 20% 98%;
+
+    --card: 222 47% 10%;
+    --card-foreground: 220 20% 98%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 220 20% 98%;
+
+    --primary: 222 90% 66%;
+    --primary-foreground: 210 100% 98%;
+
+    --secondary: 217 33% 20%;
+    --secondary-foreground: 220 20% 98%;
+
+    --muted: 217 33% 25%;
+    --muted-foreground: 220 15% 70%;
+
+    --accent: 222 50% 25%;
+    --accent-foreground: 220 20% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 30% 25%;
+    --input: 222 30% 25%;
+    --ring: 222 90% 66%;
+
+    --chart-1: 210 100% 70%;
+    --chart-2: 160 80% 60%;
+    --chart-3: 50 100% 65%;
+    --chart-4: 340 80% 65%;
+    --chart-5: 280 80% 65%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .gradient {
+    @apply bg-gradient-to-br from-blue-600 to-purple-600;
+  }
+
+  .gradient-title {
+    @apply gradient font-extrabold tracking-tighter pr-2 pb-2 text-transparent bg-clip-text;
+  }
+
+  .card-glass {
+    @apply bg-card border border-border/40 backdrop-blur-md rounded-lg shadow-lg;
+  }
+
+  .tag {
+    @apply px-2 py-1 rounded-full text-xs font-medium bg-accent-1 text-white;
+  }
+
+  .tag-warning {
+    @apply bg-warning text-black;
+  }
+
+  .tag-success {
+    @apply bg-success text-black;
+  }
+
+  .tag-danger {
+    @apply bg-danger text-white;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+}
+
+/* Fix Recharts Pie focus rectangle */
+.recharts-pie-sector:focus {
+  outline: none !important;
+}
+
+/* globals.css */
+.recharts-wrapper [tabindex]:focus,
+.recharts-wrapper .recharts-sector:focus,
+.recharts-wrapper .recharts-pie-sector:focus,
+.recharts-wrapper .recharts-layer:focus {
+  outline: none !important;
+}
+

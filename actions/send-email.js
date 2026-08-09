@@ -12,10 +12,6 @@ export async function sendEmail({ to, subject, react }) {
       subject,
       react,
     });
-<<<<<<< HEAD
-    console.log("Successfully send the email");
-=======
->>>>>>> 1c07ac6 (aug update)
 
     return { success: true, data };
   } catch (error) {

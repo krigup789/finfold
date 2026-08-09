@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import { serve } from "inngest/next";
 // import { inngest } from "@/lib/inngest/client";
 // import {
@@ -46,5 +47,24 @@ export const { GET, POST, PUT } = serve({
     triggerRecurringTransactions,
     generateMonthlyReports,
     checkBudgetAlerts,/* your functions will be passed here later! */
+=======
+import { serve } from "inngest/next";
+
+import { inngest } from "@/lib/inngest/client";
+import {
+  checkBudgetAlerts,
+  generateMonthlyReports,
+  processRecurringTransaction,
+  triggerRecurringTransactions,
+} from "@/lib/inngest/function";
+
+export const { GET, POST, PUT } = serve({
+  client: inngest,
+  functions: [
+    processRecurringTransaction,
+    triggerRecurringTransactions,
+    generateMonthlyReports,
+    checkBudgetAlerts,
+>>>>>>> 1c07ac6 (aug update)
   ],
 });

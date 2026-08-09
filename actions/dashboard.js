@@ -2,7 +2,11 @@
 
 import aj from "@/lib/arcjet";
 import { db } from "@/lib/prisma";
+<<<<<<< HEAD
 // import { request } from "@arcjet/next";
+=======
+import { request } from "@arcjet/next";
+>>>>>>> 1c07ac6 (aug update)
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 

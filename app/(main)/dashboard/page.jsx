@@ -8,8 +8,11 @@ import { DashboardOverview } from "./_components/transaction-overview";
 import NetWorth from "./_components/net-worth";
 import { CashFlowCard } from "./_components/cashflow";
 import { AccountsGrid } from "./_components/accounts-grid";
+<<<<<<< HEAD
 import { auth } from "@clerk/nextjs/server";
 // import AIChat from "@/components/AIchat";
+=======
+>>>>>>> 1c07ac6 (aug update)
 
 // ----------------------
 // Budget Section Wrapper
@@ -63,7 +66,11 @@ async function CashFlowSection({ accounts }) {
       initialCashFlow={cashFlowData?.transaction}
       income={cashFlowData?.income}
       expense={cashFlowData?.expense || 0}
+<<<<<<< HEAD
       invested={0 || 0}
+=======
+      invested={cashFlowData?.invested || 0}
+>>>>>>> 1c07ac6 (aug update)
       net={cashFlowData?.net || 0}
     />
   );
@@ -73,7 +80,10 @@ async function CashFlowSection({ accounts }) {
 // Main Dashboard Page
 // ----------------------
 export default async function DashboardPage() {
+<<<<<<< HEAD
   // const { userId } = await auth();
+=======
+>>>>>>> 1c07ac6 (aug update)
   // Start both queries in parallel
   const accountsPromise = getUserAccounts();
   const transactionsPromise = getDashboardData();
@@ -116,7 +126,12 @@ export default async function DashboardPage() {
 
       {/* Investment Accounts Grid */}
       <AccountsGrid initialAccounts={accounts} />
+<<<<<<< HEAD
       {/* <AIChat /> */}
+=======
+
+
+>>>>>>> 1c07ac6 (aug update)
     </div>
   );
 }

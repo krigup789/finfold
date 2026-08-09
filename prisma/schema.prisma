@@ -9,6 +9,7 @@ datasource db {
 }
 
 model User {
+<<<<<<< HEAD
   id            String    @id @default(uuid())
   clerkUserId   String    @unique // clerk user id
   email String? @unique
@@ -19,6 +20,18 @@ model User {
   budgets       Budget[]
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
+=======
+  id           String        @id @default(uuid())
+  clerkUserId  String        @unique
+  email        String?       @unique
+  name         String?
+  imageUrl     String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  accounts     Account[]
+  budgets      Budget?
+  transactions Transaction[]
+>>>>>>> 1c07ac6 (aug update)
 
   @@map("users")
 }
@@ -27,6 +40,7 @@ model Account {
   id           String        @id @default(uuid())
   name         String
   type         AccountType
+<<<<<<< HEAD
   balance      Decimal       @default(0) // will ask inital balance while creating an account
   isDefault    Boolean       @default(false)
   userId       String
@@ -34,12 +48,22 @@ model Account {
   transactions Transaction[]
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
+=======
+  balance      Decimal       @default(0)
+  isDefault    Boolean       @default(false)
+  userId       String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+>>>>>>> 1c07ac6 (aug update)
 
   @@index([userId])
   @@map("accounts")
 }
 
 model Transaction {
+<<<<<<< HEAD
   id                String            @id @default(uuid())
   type             TransactionType
   amount           Decimal
@@ -58,12 +82,33 @@ model Transaction {
   account          Account           @relation(fields: [accountId], references: [id], onDelete: Cascade)
   createdAt        DateTime          @default(now())
   updatedAt        DateTime          @updatedAt
+=======
+  id                String             @id @default(uuid())
+  type              TransactionType
+  amount            Decimal
+  description       String?
+  date              DateTime
+  category          String
+  receiptUrl        String?
+  isRecurring       Boolean            @default(false)
+  recurringInterval RecurringInterval?
+  nextRecurringDate DateTime?
+  lastProcessed     DateTime?
+  status            TransactionStatus  @default(COMPLETED)
+  userId            String
+  accountId         String
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  account           Account            @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  user              User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+>>>>>>> 1c07ac6 (aug update)
 
   @@index([userId])
   @@index([accountId])
   @@map("transactions")
 }
 
+<<<<<<< HEAD
 
 model Budget {
   id          String       @id @default(uuid())
@@ -73,6 +118,16 @@ model Budget {
   user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
+=======
+model Budget {
+  id            String    @id @default(uuid())
+  amount        Decimal
+  lastAlertSent DateTime?
+  userId        String    @unique
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+>>>>>>> 1c07ac6 (aug update)
 
   @@index([userId])
   @@map("budgets")
@@ -105,4 +160,8 @@ enum RecurringInterval {
   WEEKLY
   MONTHLY
   YEARLY
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1c07ac6 (aug update)

@@ -39,7 +39,11 @@ export default async function Layout() {
   const user = await currentUser();
 
   return (
+<<<<<<< HEAD
     <div>
+=======
+    <div className="px-5">
+>>>>>>> 1c07ac6 (aug update)
       <div className="mb-6">
         {/* Greeting */}
         <h1 className="text-base font-medium text-muted-foreground">
